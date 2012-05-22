@@ -69,6 +69,7 @@ call s:initVariable("g:NERDTreeShowHidden", 0)
 call s:initVariable("g:NERDTreeShowLineNumbers", 0)
 call s:initVariable("g:NERDTreeSortDirs", 1)
 call s:initVariable("g:NERDTreeDirArrows", !s:running_windows)
+call s:initVariable("g:NERDFileClickAction", "p")
 
 if !exists("g:NERDTreeSortOrder")
     let g:NERDTreeSortOrder = ['\/$', '*', '\.swp$',  '\.bak$', '\~$']
@@ -3963,7 +3964,7 @@ endfunction
 "FUNCTION: s:activateFileNode() {{{2
 "handle the user activating a tree node
 function! s:activateFileNode(node)
-    call a:node.activate({'reuse': 1, 'where': 'p'})
+    call a:node.activate({'reuse': 1, 'where': g:NERDFileClickAction})
 endfunction
 
 "FUNCTION: s:activateBookmark() {{{2
